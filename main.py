@@ -3,13 +3,13 @@ import base64
 def convert_img(path_to_img_file):
     with open(path_to_img_file,'rb') as f:
         x= base64.b64encode(f.read())
-    return x.encode('utf-8')
+    return x.decode('utf-8')
 
 path_to_file = r'path-to-file' # need to replace with function parameters
 
 from PIL import Image
 from io import BytesIO
 
-im= Image.open( BytesIO(base64.b64decode(imstr.decode('utf-8'))) )
+im= Image.open( BytesIO(base64.b64decode(imstr.encode('utf-8'))) )
 
 # to be added later ?
